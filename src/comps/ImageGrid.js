@@ -4,9 +4,10 @@ import { motion } from 'framer-motion';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DeleteFile from './DeleteFile';
 import IconButton from '@material-ui/core/IconButton';
+import {documentCollection} from '../constants';
 const ImageGrid = ({ setSelectedImage }) => {
 
-    const { docs } = useFireStore('images');
+    const { docs } = useFireStore(documentCollection);
     const [deleteFile, setDeleteFile] = useState(null);
     const [showDeleteIcon, setShowDeleteIcon] = useState(false);
     const handleDelete = (e, image) => {

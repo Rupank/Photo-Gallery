@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { projectFirestore, projectStorage } from '../firebase/config';
+import {documentCollection} from '../constants';
 
 const useDeleteStorage = ({ deleteFile }) => {
     const [error, setError] = useState(null);
     const [isDeleted, SetIsDeleted] = useState(false);
     useEffect(() => {
-        let collectionRef = projectFirestore.collection('images');
+        let collectionRef = projectFirestore.collection(documentCollection);
         let storageRef = projectStorage.refFromURL(deleteFile.url);
         storageRef.delete()
             .then(() => {
