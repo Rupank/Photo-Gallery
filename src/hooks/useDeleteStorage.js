@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { projectFirestore, projectStorage } from '../firebase/config';
-import {documentCollection} from '../constants';
+import { documentCollection } from '../constants';
 
 const useDeleteStorage = ({ deleteFile }) => {
     const [error, setError] = useState(null);
@@ -8,19 +8,19 @@ const useDeleteStorage = ({ deleteFile }) => {
     useEffect(() => {
         let collectionRef = projectFirestore.collection(documentCollection);
         let storageRef = projectStorage.refFromURL(deleteFile.url);
-        storageRef.delete()
-            .then(() => {
-                collectionRef.doc(deleteFile.id).delete()
-                    .then((data) => {
-                        SetIsDeleted(true);
-                    })
-                    .catch((err) => {
-                        setError(err);
-                    });
+        // storageRef.delete()
+        //     .then(() => {
+        collectionRef.doc(deleteFile.id).delete()
+            .then((data) => {
+                SetIsDeleted(true);
             })
-            .catch(err => {
-                SetIsDeleted(false);
-            })
+            .catch((err) => {
+                setError(err);
+            });
+        // })
+        // .catch(err => {
+        //     SetIsDeleted(false);
+        // })
     }, [deleteFile])
     return { error, isDeleted };
 }
