@@ -2,20 +2,27 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
-const ImageIcon = ({ doc, device, handleClickOnImage, handleDelete }) => {
-    const [showDeleteIcon, setShowDeleteIcon] = useState(device === 'mobile' ? true : false);
+import { isMobile } from 'react-device-detect';
+const ImageIcon = ({ doc, handleClickOnImage, handleDelete }) => {
+    const [showDeleteIcon, setShowDeleteIcon] = useState(isMobile ? true : false);
 
 
     const toggleDeleteIconVisibility = (visible) => {
-        if (device === 'mobile') {
+        if (isMobile) {
             setShowDeleteIcon(true);
         }
         else {
             setShowDeleteIcon(visible);
         }
     }
+
+    const getDevice = () => {
+        if (isMobile) {
+            return "mobile";
+        }
+    }
     return (
-        <motion.div className={`img-wrap ${device}`}
+        <motion.div className={`img-wrap ${getDevice()}`}
             layout
             whileHover={{ opacity: 1 }}
             onClick={(e) => handleClickOnImage(e, doc)}
