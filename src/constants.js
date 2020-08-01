@@ -1,4 +1,4 @@
 
-const documentCollection = 'images';
+const documentCollection = 'images-communal';
 
 export { documentCollection };
