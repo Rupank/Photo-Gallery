@@ -87,6 +87,13 @@ position: relative;
 opacity: 0.8;
 }
 
+.img-wrap div{
+  position: absolute;
+  bottom:0;
+  left:40%;
+  z-index: 1;
+}
+
 .img-wrap img{
   min-width: 100%;
   min-height: 100%;
