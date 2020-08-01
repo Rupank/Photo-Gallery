@@ -8,12 +8,15 @@ const ImageIcon = ({ doc, handleClickOnImage, handleDelete }) => {
 
 
     const toggleDeleteIconVisibility = (visible) => {
-        if (isMobile) {
-            setShowDeleteIcon(false);
-        }
-        else {
-            setShowDeleteIcon(visible);
-        }
+
+        // Now showing Delete button at all
+        setShowDeleteIcon(false);
+        // if (isMobile) {
+        //     setShowDeleteIcon(false);
+        // }
+        // else {
+        //     setShowDeleteIcon(visible);
+        // }
     }
 
     const getDevice = () => {
