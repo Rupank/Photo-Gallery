@@ -84,7 +84,10 @@ overflow: hidden;
 height: 0;
 padding: 50% 0;
 position: relative;
-opacity: 0.8;
+opacity: 0.85;
+}
+.mobile{
+  opacity: 1;
 }
 
 .img-wrap div{
