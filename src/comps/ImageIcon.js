@@ -4,12 +4,12 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import { isMobile } from 'react-device-detect';
 const ImageIcon = ({ doc, handleClickOnImage, handleDelete }) => {
-    const [showDeleteIcon, setShowDeleteIcon] = useState(isMobile ? true : false);
+    const [showDeleteIcon, setShowDeleteIcon] = useState( false);
 
 
     const toggleDeleteIconVisibility = (visible) => {
         if (isMobile) {
-            setShowDeleteIcon(true);
+            setShowDeleteIcon(false);
         }
         else {
             setShowDeleteIcon(visible);
