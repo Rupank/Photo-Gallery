@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { projectFirestore, projectStorage } from '../firebase/config';
+import { projectFirestore } from '../firebase/config';
 import { documentCollection } from '../constants';
 
 const useDeleteStorage = ({ deleteFile }) => {
@@ -7,7 +7,7 @@ const useDeleteStorage = ({ deleteFile }) => {
     const [isDeleted, SetIsDeleted] = useState(false);
     useEffect(() => {
         let collectionRef = projectFirestore.collection(documentCollection);
-        let storageRef = projectStorage.refFromURL(deleteFile.url);
+        // let storageRef = projectStorage.refFromURL(deleteFile.url);
         // storageRef.delete()
         //     .then(() => {
         collectionRef.doc(deleteFile.id).delete()
